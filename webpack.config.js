@@ -20,8 +20,8 @@ export default {
     filename: "bundle.cjs",
     path: resolve(dirname("bundle.cjs"), "dist"),
   },
-  target: 'node',
+  target: "node",
   experiments: {
-    topLevelAwait: true
-  }
+    topLevelAwait: true,
+  },
 };
