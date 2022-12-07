@@ -1,7 +1,10 @@
 import { dirname, resolve } from "path";
 
 export default {
-  entry: "./src/index.ts",
+  entry: {
+    generator: "./src/utils/generateDay.ts",
+    main: "./src/index.ts",
+  },
   mode: "production",
   module: {
     rules: [
@@ -17,8 +20,8 @@ export default {
   },
   output: {
     clean: true,
-    filename: "bundle.cjs",
-    path: resolve(dirname("bundle.cjs"), "dist"),
+    filename: "[name].cjs",
+    path: resolve(dirname("[name].cjs"), "dist"),
   },
   target: "node",
   experiments: {
