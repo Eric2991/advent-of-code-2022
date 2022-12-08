@@ -54,19 +54,25 @@ readdir("src/days", async (err, files) => {
         : 0;
 
     // Write the day problem TS file and its respective txt file
-    await writeFile(
-      `${join(__dirname, "../src/days")}/day${day + 1}.ts`,
-      generateDayFile(day + 1),
-      (err) => {
-        if (err) throw err;
-      }
-    );
-    await writeFile(
-      `${join(__dirname, "../static")}/day${day + 1}.txt`,
-      "",
-      (err) => {
-        if (err) throw err;
-      }
-    );
+    try {
+      await Promise.all([
+        writeFile(
+          `${join(__dirname, "../src/days")}/day${day + 1}.ts`,
+          generateDayFile(day + 1),
+          (err) => {
+            if (err) throw err;
+          }
+        ),
+        writeFile(
+          `${join(__dirname, "../static")}/day${day + 1}.txt`,
+          "",
+          (err) => {
+            if (err) throw err;
+          }
+        ),
+      ]);
+    } catch (err) {
+      throw err;
+    }
   }
 });
