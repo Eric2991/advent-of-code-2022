@@ -15,7 +15,17 @@ import { readInput } from "../utils/readInput";
  * TODO
  * @returns {Promise<number>}
  */
-const replaceName = async (): Promise<number> => {
+const implementPartOne = async (): Promise<number> => {
+  const buffer: string = await readInput("day${day}.txt");
+  console.log("Delete me once you've started to work on the problem!")
+  return -1;
+};
+
+/**
+ * TODO
+ * @returns {Promise<number>}
+ */
+const implementPartTwo = async (): Promise<number> => {
   const buffer: string = await readInput("day${day}.txt");
   console.log("Delete me once you've started to work on the problem!")
   return -1;
@@ -23,7 +33,9 @@ const replaceName = async (): Promise<number> => {
 
 export default {
   // TODO
-  part1: () => replaceName(),
+  part1: () => implementPartOne(),
+  // TODO
+  // part2: () => implementPartTwo(),
 } as DayAnswer;
 `;
 
