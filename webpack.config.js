@@ -5,7 +5,7 @@ export default {
     generator: "./src/utils/generateDay.ts",
     main: "./src/index.ts",
   },
-  mode: "production",
+  mode: "development",
   module: {
     rules: [
       {
