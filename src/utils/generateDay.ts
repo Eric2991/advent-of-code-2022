@@ -47,7 +47,14 @@ readdir("src/days", async (err, files) => {
 
   // Get last attempted day
   if (files.length > 0) {
-    const dayRegexMatch = files[files.length - 1].match(/[0-9]+/g);
+    const sortedFiles = files.sort((a, b) => {
+      const aDay: number = +a.match(/[0-9]+/g)[0];
+      const bDay: number = +b.match(/[0-9]+/g)[0];
+
+      return aDay < bDay ? -1 : aDay > bDay ? 1 : 0;
+    });
+
+    const dayRegexMatch = sortedFiles[sortedFiles.length - 1].match(/[0-9]+/g);
     const day: number =
       dayRegexMatch.length > 0 && !isNaN(+dayRegexMatch[0])
         ? +dayRegexMatch[0]
